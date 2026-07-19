@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ביקור בית ליולדת</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,11 +13,12 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <div class="logo">
-        <span class="logo-icon">🏠</span>
+      <a href="#welcome" class="logo">
+        <img src="assets/logo.png" alt="ביקור בית ליולדת" class="logo-img">
         <span class="logo-text">ביקור בית ליולדת</span>
-      </div>
+      </a>
       <nav class="nav" id="mainNav">
+        <a href="li-yoledet.html">מידע ליולדת</a>
         <a href="#welcome">פתיחה</a>
         <a href="#includes">מה כולל</a>
         <a href="#booking">קביעת ביקור</a>
@@ -32,7 +34,7 @@
     <!-- מסך פתיחה -->
     <section id="welcome" class="hero section">
       <div class="container hero-content">
-        <p class="section-label">מסך פתיחה</p>
+        <img src="assets/logo.png" alt="" class="hero-logo" aria-hidden="true">
         <h1 class="hero-title">ברוכה הבאה! <span class="heart">❤️</span></h1>
         <p class="hero-subtitle">מזל טוב על הולדת התינוק!</p>
         <div class="hero-info card">
@@ -50,12 +52,12 @@
         <h2 class="section-title">מה כולל ביקור הבית?</h2>
         <p class="section-desc">אייקונים עם הסברים קצרים:</p>
         <ul class="icon-list">
-          <li><span class="icon">🤱</span><span>ייעוץ הנקה אישי</span></li>
-          <li><span class="icon">⚖️</span><span>הערכת משקל התינוק</span></li>
-          <li><span class="icon">🟡</span><span>מעקב אחר צהבת</span></li>
-          <li><span class="icon">🍼</span><span>הערכת יעילות ההנקה</span></li>
-          <li><span class="icon">💙</span><span>מענה לשאלות של ההורים</span></li>
-          <li><span class="icon">🏠</span><span>הדרכה לטיפול בתינוק בבית</span></li>
+          <li><img src="assets/logo.png" alt="" class="list-logo"><span>ייעוץ הנקה אישי</span></li>
+          <li><img src="assets/logo.png" alt="" class="list-logo"><span>הערכת משקל התינוק</span></li>
+          <li><img src="assets/logo.png" alt="" class="list-logo"><span>מעקב אחר צהבת</span></li>
+          <li><img src="assets/logo.png" alt="" class="list-logo"><span>הערכת יעילות ההנקה</span></li>
+          <li><img src="assets/logo.png" alt="" class="list-logo"><span>מענה לשאלות של ההורים</span></li>
+          <li><img src="assets/logo.png" alt="" class="list-logo"><span>הדרכה לטיפול בתינוק בבית</span></li>
         </ul>
       </div>
     </section>
@@ -112,7 +114,7 @@
               <li>סימנים שהתינוק יונק היטב</li>
               <li>באיזו תדירות להניק</li>
               <li>תנוחות מומלצות</li>
-              <li><a href="#videos" class="link">סרטון הדרכה</a></li>
+              <li><button type="button" class="link-btn video-link" data-youtube-id="wjt-Ashodw8" data-video="חיבור נכון לשד">סרטון הדרכה</button></li>
             </ul>
           </article>
           <article class="tile card">
@@ -172,19 +174,23 @@
         <h2 class="section-title">סרטוני הדרכה</h2>
         <p class="section-desc">כפתורים:</p>
         <div class="video-list">
-          <button class="video-btn" data-video="חיבור נכון לשד">
+          <button class="video-btn" data-video="חיבור נכון לשד" data-youtube-id="wjt-Ashodw8">
+            <img src="assets/logo.png" alt="" class="video-btn-logo">
             <span class="play-icon">▶</span>
             <span>חיבור נכון לשד</span>
           </button>
-          <button class="video-btn" data-video="תנוחות הנקה">
+          <button class="video-btn" data-video="תנוחות הנקה" data-youtube-id="RiEa0NrpSek">
+            <img src="assets/logo.png" alt="" class="video-btn-logo">
             <span class="play-icon">▶</span>
             <span>תנוחות הנקה</span>
           </button>
-          <button class="video-btn" data-video="סימנים שהתינוק אוכל מספיק">
+          <button class="video-btn" data-video="סימנים שהתינוק אוכל מספיק" data-youtube-id="LX1fl8NtTuw">
+            <img src="assets/logo.png" alt="" class="video-btn-logo">
             <span class="play-icon">▶</span>
             <span>סימנים שהתינוק אוכל מספיק</span>
           </button>
-          <button class="video-btn" data-video="מניעת גודש">
+          <button class="video-btn" data-video="מניעת גודש" data-youtube-id="axQi5PqRZ0M">
+            <img src="assets/logo.png" alt="" class="video-btn-logo">
             <span class="play-icon">▶</span>
             <span>מניעת גודש</span>
           </button>
@@ -258,11 +264,11 @@
         <h2 class="section-title">יצירת קשר</h2>
         <div class="contact-buttons">
           <a href="tel:*2700" class="contact-btn">
-            <span class="contact-icon">💬</span>
+            <img src="assets/logo.png" alt="" class="contact-logo">
             <span>יצירת קשר עם טיפת חלב</span>
           </a>
           <a href="tel:*2700" class="contact-btn">
-            <span class="contact-icon">📞</span>
+            <img src="assets/logo.png" alt="" class="contact-logo">
             <span>יועצת הנקה</span>
           </a>
         </div>
@@ -272,6 +278,7 @@
     <!-- המשך ליווי -->
     <section id="support" class="section section-support">
       <div class="container">
+        <img src="assets/logo.png" alt="" class="support-logo" aria-hidden="true">
         <h2 class="section-title">המשך ליווי</h2>
         <p class="support-text">החודש הראשון הוא תקופה משמעותית לך ולתינוק. אנחנו כאן כדי ללוות אותך גם לאחר השחרור מבית החולים.</p>
       </div>
@@ -280,18 +287,24 @@
 
   <footer class="site-footer">
     <div class="container">
+      <img src="assets/logo.png" alt="ביקור בית ליולדת" class="footer-logo">
       <p class="copyright">© 2026 מתן עמר — כל הזכויות שמורות</p>
       <p class="footer-note">ביקור בית ליולדת | שירותי בריאות הציבור</p>
     </div>
   </footer>
 
   <div id="videoModal" class="modal hidden">
-    <div class="modal-content">
+    <div class="modal-content modal-video">
       <button class="modal-close" id="modalClose" aria-label="סגירה">×</button>
       <h3 id="modalTitle">סרטון הדרכה</h3>
-      <div class="video-placeholder">
-        <span class="play-large">▶</span>
-        <p>סרטון הדרכה — דמו</p>
+      <div class="video-embed-wrap">
+        <iframe
+          id="youtubePlayer"
+          title="סרטון הדרכה"
+          src=""
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </div>

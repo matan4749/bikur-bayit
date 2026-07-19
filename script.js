@@ -47,25 +47,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const videoButtons = document.querySelectorAll('.video-btn');
   const videoModal = document.getElementById('videoModal');
   const modalTitle = document.getElementById('modalTitle');
   const modalClose = document.getElementById('modalClose');
+  const youtubePlayer = document.getElementById('youtubePlayer');
 
-  videoButtons.forEach(btn => {
+  const openVideo = (title, youtubeId) => {
+    modalTitle.textContent = title;
+    youtubePlayer.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&hl=he&playsinline=1`;
+    videoModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeVideo = () => {
+    youtubePlayer.src = '';
+    videoModal.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.video-btn, .video-link').forEach(btn => {
     btn.addEventListener('click', () => {
-      modalTitle.textContent = btn.dataset.video;
-      videoModal.classList.remove('hidden');
+      openVideo(btn.dataset.video, btn.dataset.youtubeId);
     });
   });
 
-  modalClose.addEventListener('click', () => {
-    videoModal.classList.add('hidden');
-  });
+  modalClose.addEventListener('click', closeVideo);
 
   videoModal.addEventListener('click', (e) => {
     if (e.target === videoModal) {
-      videoModal.classList.add('hidden');
+      closeVideo();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !videoModal.classList.contains('hidden')) {
+      closeVideo();
     }
   });
 });

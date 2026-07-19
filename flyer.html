@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>פלייר — ביקור בית ליולדת</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Assistant', sans-serif;
+      background: #e2e8f0;
+      color: #1e293b;
+      line-height: 1.55;
+    }
+
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 12px 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    .toolbar button,
+    .toolbar a {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+
+    .toolbar button {
+      background: #5b8def;
+      color: #fff;
+    }
+
+    .toolbar a {
+      background: #eef4fb;
+      color: #5b8def;
+    }
+
+    .flyer-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 80px 20px 40px;
+    }
+
+    .flyer {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fff;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .flyer-header {
+      background: linear-gradient(135deg, #5b8def, #4a7ad4);
+      color: #fff;
+      text-align: center;
+      padding: 28px 24px 24px;
+    }
+
+    .flyer-header img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .flyer-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .flyer-body {
+      flex: 1;
+      padding: 24mm 18mm 12mm;
+    }
+
+    .flyer-body h2 {
+      color: #5b8def;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .flyer-body h2:not(:first-child) {
+      margin-top: 18px;
+    }
+
+    .intro {
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .highlight {
+      background: #eef4fb;
+      border-right: 4px solid #5b8def;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 0.98rem;
+    }
+
+    .flyer-body ul {
+      padding-right: 22px;
+      font-size: 0.98rem;
+    }
+
+    .flyer-body li {
+      margin-bottom: 6px;
+    }
+
+    .flyer-qr {
+      border-top: 3px solid #5b8def;
+      text-align: center;
+      padding: 16mm 18mm 14mm;
+      margin-top: auto;
+    }
+
+    .flyer-qr h2 {
+      color: #5b8def;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .flyer-qr img {
+      width: 42mm;
+      height: 42mm;
+      object-fit: contain;
+      border: 3px solid #5b8def;
+      border-radius: 12px;
+      padding: 4mm;
+      background: #fff;
+    }
+
+    .flyer-qr p {
+      margin-top: 10px;
+      color: #64748b;
+      font-size: 0.92rem;
+    }
+
+    .flyer-footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #64748b;
+      padding-bottom: 8mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .toolbar {
+        display: none;
+      }
+
+      .flyer-wrap {
+        padding: 0;
+      }
+
+      .flyer {
+        box-shadow: none;
+        width: 210mm;
+        min-height: 297mm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="window.print()">הדפסה / שמירה כ-PDF</button>
+    <a href="assets/flyer-print.png" download>הורדת תמונה PNG</a>
+    <a href="index.html">חזרה לאתר</a>
+  </div>
+
+  <div class="flyer-wrap">
+    <article class="flyer">
+      <header class="flyer-header">
+        <img src="assets/logo.png" alt="">
+        <h1>ביקור בית ליולדת</h1>
+      </header>
+
+      <div class="flyer-body">
+        <h2>ברוכה הבאה!</h2>
+        <p class="intro">מזל טוב על הולדת התינוק! האתר שלנו נוצר כדי ללוות אותך בימים הראשונים אחרי השחרור מבית החולים.</p>
+
+        <div class="highlight">
+          אם ילדת ילד ראשון או אם תינוקך נולד פג — את זכאית לביקור בית מטעם שירותי בריאות הציבור (טיפת חלב).
+        </div>
+
+        <h2>מה תמצאי באתר?</h2>
+        <ul>
+          <li>מידע על זכאות לביקור בית</li>
+          <li>טופס קצר לקביעת ביקור בית</li>
+          <li>מידע מקצועי: הנקה, צהבת, חיתולים, משקל, סימני אזהרה</li>
+          <li>מעקב יומי עם התראות</li>
+          <li>סרטוני הדרכה ושאלות נפוצות</li>
+          <li>יצירת קשר עם טיפת חלב ויועצת הנקה</li>
+        </ul>
+
+        <h2>מה כולל ביקור הבית?</h2>
+        <ul>
+          <li>ייעוץ הנקה אישי והערכת יעילות ההנקה</li>
+          <li>הערכת משקל התינוק ומעקב אחר צהבת</li>
+          <li>מענה לשאלות והדרכה לטיפול בתינוק בבית</li>
+        </ul>
+      </div>
+
+      <footer class="flyer-qr">
+        <h2>סרקי את הקוד — וגשי לאתר</h2>
+        <img src="assets/qr-code.png" alt="QR code לגישה לאתר">
+        <p>פתחי את המצלמה, כווני אל הקוד ולחצי על הקישור</p>
+      </footer>
+
+      <p class="flyer-footer">© 2026 מתן עמר — כל הזכויות שמורות | שירותי בריאות הציבור</p>
+    </article>
+  </div>
+</body>
+</html>

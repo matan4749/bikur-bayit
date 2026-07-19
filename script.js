@@ -1,4 +1,29 @@
+function scrollToPageTop() {
+  if (window.location.hash) {
+    return;
+  }
+
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
+function ensurePageStartsAtTop() {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  scrollToPageTop();
+  window.addEventListener('load', scrollToPageTop, { once: true });
+  window.addEventListener('pageshow', scrollToPageTop);
+}
+
+ensurePageStartsAtTop();
+
 document.addEventListener('DOMContentLoaded', () => {
+  scrollToPageTop();
+  requestAnimationFrame(scrollToPageTop);
+
   const menuToggle = document.getElementById('menuToggle');
   const mainNav = document.getElementById('mainNav');
 
@@ -50,18 +75,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoModal = document.getElementById('videoModal');
   const modalTitle = document.getElementById('modalTitle');
   const modalClose = document.getElementById('modalClose');
-  const youtubePlayer = document.getElementById('youtubePlayer');
+  const videoEmbedWrap = document.getElementById('videoEmbedWrap');
+  let youtubePlayer = null;
 
   const openVideo = (title, youtubeId) => {
     modalTitle.textContent = title;
+    videoEmbedWrap.innerHTML = '';
+
+    youtubePlayer = document.createElement('iframe');
+    youtubePlayer.title = title;
+    youtubePlayer.setAttribute(
+      'allow',
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+    );
+    youtubePlayer.allowFullscreen = true;
     youtubePlayer.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&hl=he&playsinline=1`;
+    videoEmbedWrap.appendChild(youtubePlayer);
+
     videoModal.classList.remove('hidden');
+    videoModal.removeAttribute('aria-hidden');
+    videoModal.removeAttribute('inert');
     document.body.style.overflow = 'hidden';
   };
 
   const closeVideo = () => {
-    youtubePlayer.src = '';
+    videoEmbedWrap.innerHTML = '';
+    youtubePlayer = null;
     videoModal.classList.add('hidden');
+    videoModal.setAttribute('aria-hidden', 'true');
+    videoModal.setAttribute('inert', '');
     document.body.style.overflow = '';
   };
 

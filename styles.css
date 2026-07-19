@@ -35,6 +35,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
@@ -129,6 +130,7 @@ body {
 /* Sections */
 .section {
   padding: 56px 0;
+  scroll-margin-top: 88px;
 }
 
 .section-alt {
@@ -704,6 +706,11 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+.modal.hidden {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Modal */

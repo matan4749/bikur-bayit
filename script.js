@@ -8,59 +8,44 @@ function scrollToPageTop() {
   document.body.scrollTop = 0;
 }
 
-function isIOS() {
-  return /iPad|iPhone|iPod/.test(navigator.userAgent)
-    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-}
-
-function ensurePageStartsAtTop() {
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
-  scrollToPageTop();
-  window.addEventListener('load', scrollToPageTop, { once: true });
-  window.addEventListener('pageshow', scrollToPageTop);
-
-  if (isIOS()) {
-    [0, 50, 150, 300, 600, 1000].forEach((delay) => {
-      setTimeout(scrollToPageTop, delay);
-    });
-  }
-}
-
-function preventInitialInputFocusScroll() {
-  if (!isIOS() || window.location.hash) {
-    return;
-  }
-
-  let allowFocus = false;
-
-  setTimeout(() => {
-    allowFocus = true;
-  }, 1200);
-
-  document.querySelectorAll('input, select, textarea').forEach((field) => {
-    field.addEventListener(
-      'focus',
-      (event) => {
-        if (!allowFocus) {
-          event.preventDefault();
-          field.blur();
-          scrollToPageTop();
-        }
-      },
-      true
-    );
+function enableFormFields() {
+  document.querySelectorAll('[tabindex="-1"]').forEach((field) => {
+    field.removeAttribute('tabindex');
   });
 }
 
-ensurePageStartsAtTop();
+function setupAnchorNavigation() {
+  document.documentElement.classList.add('nav-smooth');
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+      enableFormFields();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+function setupFormFieldUnlock() {
+  const unlock = () => {
+    enableFormFields();
+  };
+
+  document.addEventListener('touchstart', unlock, { once: true, passive: true });
+  document.addEventListener('click', unlock, { once: true });
+  window.setTimeout(unlock, 2000);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   scrollToPageTop();
-  requestAnimationFrame(scrollToPageTop);
-  preventInitialInputFocusScroll();
+  setupFormFieldUnlock();
+  setupAnchorNavigation();
 
   const menuToggle = document.getElementById('menuToggle');
   const mainNav = document.getElementById('mainNav');
@@ -80,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   bookingForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    enableFormFields();
     bookingForm.classList.add('hidden');
     bookingSuccess.classList.remove('hidden');
   });
@@ -90,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   trackingForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    enableFormFields();
 
     const feedings = parseInt(document.getElementById('feedings').value, 10) || 0;
     const wetDiapers = parseInt(document.getElementById('wetDiapers').value, 10) || 0;
@@ -114,13 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modalTitle');
   const modalClose = document.getElementById('modalClose');
   const videoEmbedWrap = document.getElementById('videoEmbedWrap');
-  let youtubePlayer = null;
 
   const openVideo = (title, youtubeId) => {
+    enableFormFields();
     modalTitle.textContent = title;
     videoEmbedWrap.innerHTML = '';
 
-    youtubePlayer = document.createElement('iframe');
+    const youtubePlayer = document.createElement('iframe');
     youtubePlayer.title = title;
     youtubePlayer.setAttribute(
       'allow',
@@ -138,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const closeVideo = () => {
     videoEmbedWrap.innerHTML = '';
-    youtubePlayer = null;
     videoModal.classList.add('hidden');
     videoModal.setAttribute('aria-hidden', 'true');
     videoModal.setAttribute('inert', '');
@@ -165,3 +151,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+window.addEventListener('load', scrollToPageTop);

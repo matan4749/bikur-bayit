@@ -2,27 +2,20 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>ביקור בית ליולדת</title>
   <link rel="icon" type="image/png" href="assets/logo.png">
+  <script src="ios-scroll-fix.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    if (!window.location.hash) {
-      window.scrollTo(0, 0);
-    }
-  </script>
 </head>
-<body>
+<body id="top">
   <header class="site-header">
     <div class="container">
-      <a href="#welcome" class="logo">
-        <img src="assets/logo.png" alt="ביקור בית ליולדת" class="logo-img">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="ביקור בית ליולדת" class="logo-img" width="44" height="44">
         <span class="logo-text">ביקור בית ליולדת</span>
       </a>
       <nav class="nav" id="mainNav">
@@ -42,7 +35,7 @@
     <!-- מסך פתיחה -->
     <section id="welcome" class="hero section">
       <div class="container hero-content">
-        <img src="assets/logo.png" alt="" class="hero-logo" aria-hidden="true">
+        <img src="assets/logo.png" alt="" class="hero-logo" aria-hidden="true" width="120" height="120">
         <h1 class="hero-title">ברוכה הבאה! <span class="heart">❤️</span></h1>
         <p class="hero-subtitle">מזל טוב על הולדת התינוק!</p>
         <div class="hero-info card">
@@ -73,30 +66,30 @@
     <section id="booking" class="section">
       <div class="container">
         <h2 class="section-title">קביעת ביקור</h2>
-        <form id="bookingForm" class="booking-form card">
+        <form id="bookingForm" class="booking-form card" autocomplete="off">
           <div class="form-group">
             <label for="motherName">שם האם</label>
-            <input type="text" id="motherName" name="motherName" required>
+            <input type="text" id="motherName" name="motherName" autocomplete="name" tabindex="-1" required>
           </div>
           <div class="form-group">
             <label for="phone">טלפון</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" tabindex="-1" required>
           </div>
           <div class="form-group">
             <label for="address">כתובת</label>
-            <input type="text" id="address" name="address" required>
+            <input type="text" id="address" name="address" autocomplete="street-address" tabindex="-1" required>
           </div>
           <div class="form-group">
             <label for="birthDate">תאריך לידה</label>
-            <input type="text" id="birthDate" name="birthDate" inputmode="numeric" placeholder="למשל 19/07/2026" autocomplete="bday" required>
+            <input type="text" id="birthDate" name="birthDate" inputmode="numeric" placeholder="למשל 19/07/2026" autocomplete="off" tabindex="-1" required>
           </div>
           <div class="form-group">
             <label for="babyName">שם התינוק</label>
-            <input type="text" id="babyName" name="babyName" required>
+            <input type="text" id="babyName" name="babyName" tabindex="-1" required>
           </div>
           <div class="form-group">
             <label for="city">יישוב</label>
-            <input type="text" id="city" name="city" required>
+            <input type="text" id="city" name="city" autocomplete="address-level2" tabindex="-1" required>
           </div>
           <button type="submit" class="btn btn-primary">שליחת בקשה</button>
         </form>
@@ -222,19 +215,19 @@
         <form id="trackingForm" class="tracking-form card">
           <div class="tracking-item">
             <label for="feedings">🍼 מספר הנקות היום</label>
-            <input type="number" id="feedings" name="feedings" min="0" max="20" value="0">
+            <input type="text" id="feedings" name="feedings" inputmode="numeric" pattern="[0-9]*" value="0" tabindex="-1">
           </div>
           <div class="tracking-item">
             <label for="wetDiapers">💧 חיתולים רטובים</label>
-            <input type="number" id="wetDiapers" name="wetDiapers" min="0" max="20" value="0">
+            <input type="text" id="wetDiapers" name="wetDiapers" inputmode="numeric" pattern="[0-9]*" value="0" tabindex="-1">
           </div>
           <div class="tracking-item">
             <label for="bowelMovements">💩 יציאות</label>
-            <input type="number" id="bowelMovements" name="bowelMovements" min="0" max="20" value="0">
+            <input type="text" id="bowelMovements" name="bowelMovements" inputmode="numeric" pattern="[0-9]*" value="0" tabindex="-1">
           </div>
           <div class="tracking-item">
             <label for="mood">😊 איך את מרגישה היום?</label>
-            <select id="mood" name="mood">
+            <select id="mood" name="mood" tabindex="-1">
               <option value="good">טוב</option>
               <option value="ok">בסדר</option>
               <option value="bad">לא טוב</option>

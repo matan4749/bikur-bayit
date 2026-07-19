@@ -1,0 +1,18 @@
+{
+  "name": "bikur-bayit",
+  "version": "1.0.0",
+  "description": "אתר מידע וקביעת ביקור בית ליולדות — שירותי בריאות הציבור (טיפת חלב).",
+  "main": "ios-scroll-fix.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

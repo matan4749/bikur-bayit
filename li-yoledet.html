@@ -2,23 +2,16 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>מידע ליולדת — ביקור בית ליולדת</title>
   <link rel="icon" type="image/png" href="assets/logo.png">
+  <script src="ios-scroll-fix.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    if (!window.location.hash) {
-      window.scrollTo(0, 0);
-    }
-  </script>
 </head>
-<body class="info-page">
+<body id="top" class="info-page">
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">
@@ -141,12 +134,5 @@
       <p class="footer-note">ביקור בית ליולדת | שירותי בריאות הציבור</p>
     </div>
   </footer>
-  <script>
-    window.addEventListener('pageshow', () => {
-      if (!window.location.hash) {
-        window.scrollTo(0, 0);
-      }
-    });
-  </script>
 </body>
 </html>

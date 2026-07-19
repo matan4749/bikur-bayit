@@ -34,8 +34,22 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 88px;
+  overflow-anchor: none;
+}
+
+html.ios-scroll-lock,
+html.ios-scroll-lock body {
+  overflow: hidden !important;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  inset: 0;
+  overscroll-behavior: none;
+}
+
+html.nav-smooth {
+  scroll-behavior: smooth;
 }
 
 body {

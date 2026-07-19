@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ביקור בית ליולדת</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-icon">🏠</span>
+        <span class="logo-text">ביקור בית ליולדת</span>
+      </div>
+      <nav class="nav" id="mainNav">
+        <a href="#welcome">פתיחה</a>
+        <a href="#includes">מה כולל</a>
+        <a href="#booking">קביעת ביקור</a>
+        <a href="#info">מידע חשוב</a>
+        <a href="#tracking">מעקב יומי</a>
+        <a href="#contact">יצירת קשר</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="תפריט">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- מסך פתיחה -->
+    <section id="welcome" class="hero section">
+      <div class="container hero-content">
+        <p class="section-label">מסך פתיחה</p>
+        <h1 class="hero-title">ברוכה הבאה! <span class="heart">❤️</span></h1>
+        <p class="hero-subtitle">מזל טוב על הולדת התינוק!</p>
+        <div class="hero-info card">
+          <h2>חשוב שתדעי:</h2>
+          <p>אם ילדת ילד ראשון או אם תינוקך נולד פג, את זכאית לביקור בית מטעם שירותי בריאות הציבור (טיפת חלב).</p>
+          <p>ביקור הבית נועד ללוות אותך בימים הראשונים, לתת מענה מקצועי ולעזור לך ולתינוק להתחיל את הדרך בביטחון.</p>
+        </div>
+        <a href="#booking" class="btn btn-primary btn-large">לקביעת ביקור בית</a>
+      </div>
+    </section>
+
+    <!-- מה כולל ביקור הבית -->
+    <section id="includes" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">מה כולל ביקור הבית?</h2>
+        <p class="section-desc">אייקונים עם הסברים קצרים:</p>
+        <ul class="icon-list">
+          <li><span class="icon">🤱</span><span>ייעוץ הנקה אישי</span></li>
+          <li><span class="icon">⚖️</span><span>הערכת משקל התינוק</span></li>
+          <li><span class="icon">🟡</span><span>מעקב אחר צהבת</span></li>
+          <li><span class="icon">🍼</span><span>הערכת יעילות ההנקה</span></li>
+          <li><span class="icon">💙</span><span>מענה לשאלות של ההורים</span></li>
+          <li><span class="icon">🏠</span><span>הדרכה לטיפול בתינוק בבית</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- קביעת ביקור -->
+    <section id="booking" class="section">
+      <div class="container">
+        <h2 class="section-title">קביעת ביקור</h2>
+        <p class="section-desc">טופס קצר:</p>
+        <form id="bookingForm" class="booking-form card">
+          <div class="form-group">
+            <label for="motherName">שם האם</label>
+            <input type="text" id="motherName" name="motherName" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">טלפון</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="address">כתובת</label>
+            <input type="text" id="address" name="address" required>
+          </div>
+          <div class="form-group">
+            <label for="birthDate">תאריך לידה</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+          </div>
+          <div class="form-group">
+            <label for="babyName">שם התינוק</label>
+            <input type="text" id="babyName" name="babyName" required>
+          </div>
+          <div class="form-group">
+            <label for="city">יישוב</label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <button type="submit" class="btn btn-primary">שליחת בקשה</button>
+          <p class="form-note">(בדמו אין צורך שיישלח באמת.)</p>
+        </form>
+        <div id="bookingSuccess" class="success-message hidden">
+          <span class="success-icon">✓</span>
+          <p>הבקשה נקלטה בהצלחה! נציג יחזור אלייך בהקדם.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- מידע חשוב לחודש הראשון -->
+    <section id="info" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">מידע חשוב לחודש הראשון</h2>
+        <p class="section-desc">אריחים גדולים:</p>
+        <div class="tiles">
+          <article class="tile card">
+            <h3>הנקה</h3>
+            <ul>
+              <li>סימנים שהתינוק יונק היטב</li>
+              <li>באיזו תדירות להניק</li>
+              <li>תנוחות מומלצות</li>
+              <li><a href="#videos" class="link">סרטון הדרכה</a></li>
+            </ul>
+          </article>
+          <article class="tile card">
+            <h3>צהבת</h3>
+            <ul>
+              <li>מתי זה תקין</li>
+              <li>מתי לפנות לבדיקה</li>
+            </ul>
+          </article>
+          <article class="tile card">
+            <h3>חיתולים</h3>
+            <p>כמה חיתולים רטובים אמורים להיות בכל יום</p>
+            <p class="table-label">טבלה פשוטה לפי גיל התינוק:</p>
+            <table class="info-table">
+              <thead>
+                <tr>
+                  <th>גיל</th>
+                  <th>חיתולים רטובים ביום</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>יום 1–2</td><td>1–2</td></tr>
+                <tr><td>יום 3–4</td><td>3–4</td></tr>
+                <tr><td>יום 5+</td><td>6+</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="info-blocks">
+          <article class="info-block card">
+            <h3>משקל</h3>
+            <ul>
+              <li>מתי צפויה ירידה במשקל</li>
+              <li>מתי צריך לפנות לבדיקה</li>
+            </ul>
+          </article>
+          <article class="info-block card warning-block">
+            <h3>סימני אזהרה</h3>
+            <p>אם מופיע אחד מהבאים יש ליצור קשר עם איש מקצוע:</p>
+            <ul>
+              <li>ישנוניות חריגה</li>
+              <li>מעט חיתולים</li>
+              <li>קושי ביניקה</li>
+              <li>חום</li>
+              <li>ירידה משמעותית במשקל</li>
+              <li>האם סובלת מכאבים חריגים או חום</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- סרטוני הדרכה ושאלות נפוצות -->
+    <section id="videos" class="section">
+      <div class="container">
+        <h2 class="section-title">סרטוני הדרכה</h2>
+        <p class="section-desc">כפתורים:</p>
+        <div class="video-list">
+          <button class="video-btn" data-video="חיבור נכון לשד">
+            <span class="play-icon">▶</span>
+            <span>חיבור נכון לשד</span>
+          </button>
+          <button class="video-btn" data-video="תנוחות הנקה">
+            <span class="play-icon">▶</span>
+            <span>תנוחות הנקה</span>
+          </button>
+          <button class="video-btn" data-video="סימנים שהתינוק אוכל מספיק">
+            <span class="play-icon">▶</span>
+            <span>סימנים שהתינוק אוכל מספיק</span>
+          </button>
+          <button class="video-btn" data-video="מניעת גודש">
+            <span class="play-icon">▶</span>
+            <span>מניעת גודש</span>
+          </button>
+        </div>
+
+        <h2 class="section-title section-title-spaced">שאלות נפוצות</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>כמה זמן צריכה להימשך הנקה?</summary>
+            <p>הנקה יכולה להימשך בין 10 ל-45 דקות. חשוב לתת לתינוק לינוק כל עוד הוא מעוניין.</p>
+          </details>
+          <details class="faq-item">
+            <summary>איך אדע שיש לי מספיק חלב?</summary>
+            <p>סימנים חיוביים: תינוק רגוע אחרי הנקה, עלייה במשקל, מספיק חיתולים רטובים ביום.</p>
+          </details>
+          <details class="faq-item">
+            <summary>מתי צריך לשאוב?</summary>
+            <p>שאיבה מומלצת כשיש צורך לשמור חלב, לשחרר גודש, או כשאין אפשרות להניק ישירות.</p>
+          </details>
+          <details class="faq-item">
+            <summary>מתי לפנות לעזרה?</summary>
+            <p>כאשר יש קושי ביניקה, כאבים חריגים, חשש לגבי משקל התינוק או מספר חיתולים נמוך.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- מעקב יומי -->
+    <section id="tracking" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">מעקב יומי</h2>
+        <p class="section-desc">מסך מעקב יומי עם סימון פשוט:</p>
+        <form id="trackingForm" class="tracking-form card">
+          <div class="tracking-item">
+            <label for="feedings">🍼 מספר הנקות היום</label>
+            <input type="number" id="feedings" name="feedings" min="0" max="20" value="0">
+          </div>
+          <div class="tracking-item">
+            <label for="wetDiapers">💧 חיתולים רטובים</label>
+            <input type="number" id="wetDiapers" name="wetDiapers" min="0" max="20" value="0">
+          </div>
+          <div class="tracking-item">
+            <label for="bowelMovements">💩 יציאות</label>
+            <input type="number" id="bowelMovements" name="bowelMovements" min="0" max="20" value="0">
+          </div>
+          <div class="tracking-item">
+            <label for="mood">😊 איך את מרגישה היום?</label>
+            <select id="mood" name="mood">
+              <option value="good">טוב</option>
+              <option value="ok">בסדר</option>
+              <option value="bad">לא טוב</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">שמירת מעקב</button>
+        </form>
+        <div id="trackingAlert" class="alert-box hidden">
+          <span class="alert-icon">⚠️</span>
+          <p>שמנו לב לנתונים שדורשים תשומת לב. מומלץ ליצור קשר עם טיפת חלב. ניתן גם להשאיר פרטים ונציג יחזור אלייך.</p>
+          <a href="#contact" class="btn btn-secondary">יצירת קשר</a>
+        </div>
+        <div id="trackingSuccess" class="success-message hidden">
+          <span class="success-icon">✓</span>
+          <p>המעקב נשמר בהצלחה!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- יצירת קשר -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">יצירת קשר</h2>
+        <div class="contact-buttons">
+          <a href="tel:*2700" class="contact-btn">
+            <span class="contact-icon">💬</span>
+            <span>יצירת קשר עם טיפת חלב</span>
+          </a>
+          <a href="tel:*2700" class="contact-btn">
+            <span class="contact-icon">📞</span>
+            <span>יועצת הנקה</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- המשך ליווי -->
+    <section id="support" class="section section-support">
+      <div class="container">
+        <h2 class="section-title">המשך ליווי</h2>
+        <p class="support-text">החודש הראשון הוא תקופה משמעותית לך ולתינוק. אנחנו כאן כדי ללוות אותך גם לאחר השחרור מבית החולים.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="copyright">© 2026 מתן עמר — כל הזכויות שמורות</p>
+      <p class="footer-note">ביקור בית ליולדת | שירותי בריאות הציבור</p>
+    </div>
+  </footer>
+
+  <div id="videoModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="סגירה">×</button>
+      <h3 id="modalTitle">סרטון הדרכה</h3>
+      <div class="video-placeholder">
+        <span class="play-large">▶</span>
+        <p>סרטון הדרכה — דמו</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

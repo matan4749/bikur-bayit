@@ -8,6 +8,11 @@ function scrollToPageTop() {
   document.body.scrollTop = 0;
 }
 
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
 function ensurePageStartsAtTop() {
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -16,6 +21,38 @@ function ensurePageStartsAtTop() {
   scrollToPageTop();
   window.addEventListener('load', scrollToPageTop, { once: true });
   window.addEventListener('pageshow', scrollToPageTop);
+
+  if (isIOS()) {
+    [0, 50, 150, 300, 600, 1000].forEach((delay) => {
+      setTimeout(scrollToPageTop, delay);
+    });
+  }
+}
+
+function preventInitialInputFocusScroll() {
+  if (!isIOS() || window.location.hash) {
+    return;
+  }
+
+  let allowFocus = false;
+
+  setTimeout(() => {
+    allowFocus = true;
+  }, 1200);
+
+  document.querySelectorAll('input, select, textarea').forEach((field) => {
+    field.addEventListener(
+      'focus',
+      (event) => {
+        if (!allowFocus) {
+          event.preventDefault();
+          field.blur();
+          scrollToPageTop();
+        }
+      },
+      true
+    );
+  });
 }
 
 ensurePageStartsAtTop();
@@ -23,6 +60,7 @@ ensurePageStartsAtTop();
 document.addEventListener('DOMContentLoaded', () => {
   scrollToPageTop();
   requestAnimationFrame(scrollToPageTop);
+  preventInitialInputFocusScroll();
 
   const menuToggle = document.getElementById('menuToggle');
   const mainNav = document.getElementById('mainNav');
